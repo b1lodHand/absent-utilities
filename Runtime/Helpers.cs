@@ -1,22 +1,28 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace com.absence.utilities
 {
     /// <summary>
-    /// A static class for general helpful methods
+    /// Holds some handy functions.
     /// </summary>
     public static class Helpers
     {
         /// <summary>
-        /// Destroy all child objects of this transform (Unintentionally evil sounding).
-        /// Use it like so:
-        /// <code>
-        /// transform.DestroyChildren();
-        /// </code>
+        /// Splits input string by capital letters and returns all seperated parts.
         /// </summary>
-        public static void DestroyChildren(this Transform t)
+        public static IEnumerable<string> SplitCamelCase(string input)
         {
-            foreach (Transform child in t) Object.Destroy(child.gameObject);
+            return Regex.Split(input, @"([A-Z]?[a-z]+)").Where(str => !string.IsNullOrEmpty(str));
+        }
+
+        /// <summary>
+        /// Splits input string by capital letters and returns a more human readable one.
+        /// </summary>
+        public static string SplitCamelCaseWithSpace(string input, string seperator)
+        {
+            return String.Join(seperator, SplitCamelCase(input));
         }
     }
 
