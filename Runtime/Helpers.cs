@@ -23,7 +23,7 @@ namespace com.absence.utilities
         /// </summary>
         public static string SplitCamelCase(string input, string seperator)
         {
-            return String.Join(seperator, SplitCamelCase(input));
+            return String.Join(seperator, SplitCamelCaseIndividual(input));
         }
     }
 
