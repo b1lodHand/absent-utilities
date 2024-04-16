@@ -19,7 +19,7 @@ namespace com.absence.utilities
         }
 
         /// <summary>
-        /// Splits input string by capital letters and returns a more human readable one.
+        /// Splits input string by capital letters and returns all parts combined with seperator.
         /// </summary>
         public static string SplitCamelCaseWithSpace(string input, string seperator)
         {
