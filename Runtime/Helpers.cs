@@ -13,7 +13,7 @@ namespace com.absence.utilities
         /// <summary>
         /// Splits input string by capital letters and returns all seperated parts.
         /// </summary>
-        public static IEnumerable<string> SplitCamelCase(string input)
+        public static IEnumerable<string> SplitCamelCaseIndividual(string input)
         {
             return Regex.Split(input, @"([A-Z]?[a-z]+)").Where(str => !string.IsNullOrEmpty(str));
         }
@@ -21,7 +21,7 @@ namespace com.absence.utilities
         /// <summary>
         /// Splits input string by capital letters and returns all parts combined with seperator.
         /// </summary>
-        public static string SplitCamelCaseWithSpace(string input, string seperator)
+        public static string SplitCamelCase(string input, string seperator)
         {
             return String.Join(seperator, SplitCamelCase(input));
         }
