@@ -26,7 +26,7 @@ namespace com.absence.utilities.Editor
         "Textures/Sprites",
         };
 
-        [MenuItem("absence/absent-utilities/Create Default Directories")]
+        [MenuItem("absencee_/absent-utilities/Create Default Directories")]
         public static void CreateDirectories()
         {
             for (int i = 0; i < FOLDERS.Length; i++)
