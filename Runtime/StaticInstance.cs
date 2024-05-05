@@ -3,9 +3,8 @@ using UnityEngine;
 namespace com.absence.utilities
 {
     /// <summary>
-    /// A static instance is similar to a singleton, but instead of destroying any new
-    /// instances, it overrides the current instance. This is handy for resetting the state
-    /// and saves you doing it manually
+    /// It sets the static instance itself when the scene with this object loads. If there are multiple objects
+    /// that has components derived from this class, it overrides the preious instance.
     /// </summary>
     public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -20,8 +19,8 @@ namespace com.absence.utilities
     }
 
     /// <summary>
-    /// This transforms the static instance into a basic singleton. This will destroy any new
-    /// versions created, leaving the original instance intact
+    /// It is pretty similar to the static instance. The only difference is that 
+    /// if there is a previous instance, instead of overriding it, it destroys itself.
     /// </summary>
     public abstract class Singleton<T> : StaticInstance<T> where T : MonoBehaviour
     {
@@ -37,9 +36,7 @@ namespace com.absence.utilities
     }
 
     /// <summary>
-    /// Finally we have a persistent version of the singleton. This will survive through scene
-    /// loads. Perfect for system classes which require stateful, persistent data. Or audio sources
-    /// where music plays through loading screens, etc
+    /// It is an extended version of the singleton. It survives through the scene loads.
     /// </summary>
     public abstract class PersistentSingleton<T> : Singleton<T> where T : MonoBehaviour
     {
