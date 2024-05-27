@@ -25,6 +25,44 @@ namespace com.absence.utilities
         {
             return String.Join(seperator, SplitCamelCaseIndividual(input));
         }
+
+        const float K_SPACING = 5f;
+        const float K_PADDING = 5f;
+        /// <summary>
+        /// Splits input rect by specified parameters.
+        /// </summary>
+        public static Rect[] SliceRectHorizontally(Rect rect, int pieceCount, float overrideSpacing = K_SPACING, float overridePadding = K_PADDING, params float[] pieceSizeCoefficients)
+        {
+            if (pieceCount <= 0) return null;
+
+            if(pieceSizeCoefficients == null)
+            {
+                pieceSizeCoefficients = new float[pieceCount];
+                for (int i = 0; i < pieceCount; i++)
+                {
+                    pieceSizeCoefficients[i] = 1f;
+                }
+            }
+
+            Rect[] result = new Rect[pieceCount];
+
+            float totalWidth = rect.width - ((2 * overridePadding) + ((pieceCount - 1) * overrideSpacing));
+            float generalCoefficient = totalWidth / pieceSizeCoefficients.Sum();
+
+            float horizontalPointer = rect.x + overridePadding;
+            for (int i = 0; i < pieceCount; i++)
+            {
+                float currentSize = generalCoefficient * pieceSizeCoefficients[i];
+
+                Rect current = new Rect(horizontalPointer, rect.y, currentSize, rect.height);
+                result[i] = current;
+
+                horizontalPointer += currentSize;
+                horizontalPointer += overrideSpacing;
+            }
+
+            return result;
+        }
     }
 
 }
