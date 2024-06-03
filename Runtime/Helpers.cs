@@ -27,12 +27,21 @@ namespace com.absence.utilities
             return String.Join(seperator, SplitCamelCaseIndividual(input));
         }
 
-        const float K_SPACING = 5f;
-        const float K_PADDING = 5f;
+        public const float K_SPACING = 5f;
+        public const float K_PADDING = 5f;
+
         /// <summary>
         /// Splits input rect by specified parameters.
         /// </summary>
-        public static Rect[] SliceRectHorizontally(Rect rect, int pieceCount, float overrideSpacing = K_SPACING, float overridePadding = K_PADDING, params float[] pieceSizeCoefficients)
+        public static Rect[] SliceRectHorizontally(Rect rect, int pieceCount, params float[] pieceSizeCoefficients)
+        {
+            return SliceRectHorizontally(rect, pieceCount, K_SPACING, K_PADDING, pieceSizeCoefficients);
+        }
+
+        /// <summary>
+        /// Splits input rect by specified parameters.
+        /// </summary>
+        public static Rect[] SliceRectHorizontally(Rect rect, int pieceCount, float overrideSpacing, float overridePadding, params float[] pieceSizeCoefficients)
         {
             if (pieceCount <= 0) return null;
 
