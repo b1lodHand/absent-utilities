@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEditor;
 
-namespace com.absence.utilities.Editor
+namespace com.absence.utilities.editor
 {
     public static class CreateDefaultDirectories
     {
