@@ -10,7 +10,8 @@ namespace com.absence.utilities.editor
     /// </summary>
     public static class CreateDefaultDirectories
     {
-        private static readonly string[] FOLDERS = {
+        public static List<string> FOLDERS = new()
+        {
         "Resources",
         "Textures",
         "_Scripts",
@@ -26,7 +27,8 @@ namespace com.absence.utilities.editor
         "Prefabs",
         };
 
-        private static readonly string[] SUBFOLDERS = {
+        public static List<string> SUBFOLDERS = new()
+        {
         "_Scripts/Editor",
         "Textures/Sprites",
         };
@@ -37,7 +39,7 @@ namespace com.absence.utilities.editor
         [MenuItem("absencee_/absent-utilities/Create Default Directories")]
         public static void CreateDirectories()
         {
-            for (int i = 0; i < FOLDERS.Length; i++)
+            for (int i = 0; i < FOLDERS.Count; i++)
             {
                 if (AssetDatabase.IsValidFolder(Path.Combine("Assets", FOLDERS[i]))) continue;
                 AssetDatabase.CreateFolder("Assets", FOLDERS[i]);
@@ -52,7 +54,7 @@ namespace com.absence.utilities.editor
                 AssetDatabase.CreateFolder("Assets", extraFolders[i]);
             }
 
-            for (int i = 0; i < SUBFOLDERS.Length; i++)
+            for (int i = 0; i < SUBFOLDERS.Count; i++)
             {
                 if (AssetDatabase.IsValidFolder(Path.Combine("Assets", SUBFOLDERS[i]))) continue;
                 string[] seperatedFolderName = SUBFOLDERS[i].Split('/');
