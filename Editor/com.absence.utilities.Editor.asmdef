@@ -1,7 +1,9 @@
 {
     "name": "com.absence.utilities.editor",
     "rootNamespace": "com.absence.utilities.editor",
-    "references": [],
+    "references": [
+        "com.absence.utilities"
+    ],
     "includePlatforms": [
         "Editor"
     ],
