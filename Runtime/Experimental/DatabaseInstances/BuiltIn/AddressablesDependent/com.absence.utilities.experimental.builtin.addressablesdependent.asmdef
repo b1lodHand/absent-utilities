@@ -1,0 +1,26 @@
+{
+    "name": "com.absence.utilities.experimental.builtin.addressablesdependent",
+    "rootNamespace": "com.absence.utilities.experimental.builtin",
+    "references": [
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "com.absence.utilities"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "ADDRESSABLES"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.addressables",
+            "expression": "1.22.3",
+            "define": "ADDRESSABLES"
+        }
+    ],
+    "noEngineReferences": false
+}
