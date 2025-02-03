@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.absence.utilities.experimental.databases.builtin
+namespace com.absence.utilities.experimental.databases
 {
     public abstract class ResourcesDatabaseInstance<T1, T2> : DatabaseInstance<T1, T2> where T2 : UnityEngine.Object
     {

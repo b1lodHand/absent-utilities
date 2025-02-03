@@ -1,6 +1,6 @@
 {
     "name": "com.absence.utilities.experimental.builtin.addressablesdependent",
-    "rootNamespace": "com.absence.utilities.experimental.builtin",
+    "rootNamespace": "com.absence.utilities.experimental",
     "references": [
         "Unity.Addressables",
         "Unity.ResourceManager",

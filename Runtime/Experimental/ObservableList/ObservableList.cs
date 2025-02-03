@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-namespace com.absence.utilities.experimental
+namespace com.absence.utilities.experimental.observablelists
 {
     [System.Serializable]
     public class ObservableList : IObservableList

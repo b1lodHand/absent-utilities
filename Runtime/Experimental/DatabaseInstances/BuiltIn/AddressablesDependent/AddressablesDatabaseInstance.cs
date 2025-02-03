@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace com.absence.utilities.experimental.databases.builtin
+namespace com.absence.utilities.experimental.databases
 {
     public abstract class AddressablesDatabaseInstance<T1, T2> : DatabaseInstance<T1, T2>, IAsyncDatabaseInstance<T2> where T2 : UnityEngine.Object
     {
