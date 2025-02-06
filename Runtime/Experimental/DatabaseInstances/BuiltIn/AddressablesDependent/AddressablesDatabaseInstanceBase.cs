@@ -6,7 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace com.absence.utilities.experimental.databases
 {
-    public abstract class AddressablesDatabaseInstance<T1, T2> : DatabaseInstance<T1, T2>, IAsyncDatabaseInstance<T2> where T2 : UnityEngine.Object
+    public abstract class AddressablesDatabaseInstanceBase<T1, T2> : DatabaseInstanceBase<T1, T2>, IAsyncDatabaseInstance<T2> where T2 : UnityEngine.Object
     {
         object m_key;
         bool m_workOnOriginals;
@@ -16,7 +16,7 @@ namespace com.absence.utilities.experimental.databases
         public AsyncOperationHandle<IList<T2>>? OpHandle => m_handle;
         public event Action<bool> OnRefreshComplete;
 
-        public AddressablesDatabaseInstance(object key, bool workOnOriginals) : base()
+        public AddressablesDatabaseInstanceBase(object key, bool workOnOriginals) : base()
         {
             m_key = key;
             m_workOnOriginals = workOnOriginals;
@@ -112,10 +112,9 @@ namespace com.absence.utilities.experimental.databases
             m_readyForNextRefresh = true;
         }
     }
-
-    public class AddressablesMemberDatabaseInstance<T1, T2> : AddressablesDatabaseInstance<T1, T2> where T2 : UnityEngine.Object, IDatabaseMember<T1>
+    public class AddressablesDatabaseInstance<T1, T2> : AddressablesDatabaseInstanceBase<T1, T2> where T2 : UnityEngine.Object, IDatabaseMember<T1>
     {
-        public AddressablesMemberDatabaseInstance(object key, bool workOnOriginals = true) : base(key, workOnOriginals)
+        public AddressablesDatabaseInstance(object key, bool workOnOriginals = true) : base(key, workOnOriginals)
         {
         }
 

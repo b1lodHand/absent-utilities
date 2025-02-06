@@ -2,7 +2,7 @@ using UnityEditor;
 
 namespace com.absence.utilities.experimental.databases.editor
 {
-    public abstract class EditorDatabaseInstance<T1, T2> : DatabaseInstance<T1, T2> where T2 : UnityEngine.Object
+    public abstract class EditorDatabaseInstance<T1, T2> : DatabaseInstanceBase<T1, T2> where T2 : UnityEngine.Object
     {
         protected string[] m_targetFolders;
 

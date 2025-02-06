@@ -4,17 +4,17 @@ using System;
 
 namespace com.absence.utilities.experimental.databases
 {
-    public abstract class DatabaseInstance<T1, T2> : BaseDatabaseInstance<T1, T2>
+    public abstract class DatabaseInstanceBase<T1, T2> : BaseDatabaseInstance<T1, T2>
         where T2 : UnityEngine.Object
     {
-        public DatabaseInstance() : base()
+        public DatabaseInstanceBase() : base()
         {
         }
     }
-    public abstract class MemberDatabaseInstance<T1, T2> : BaseDatabaseInstance<T1, T2>
+    public abstract class MemberDatabaseInstanceBase<T1, T2> : BaseDatabaseInstance<T1, T2>
         where T2 : UnityEngine.Object, IDatabaseMember<T1>
     {
-        public MemberDatabaseInstance() : base()
+        public MemberDatabaseInstanceBase() : base()
         {
         }
 

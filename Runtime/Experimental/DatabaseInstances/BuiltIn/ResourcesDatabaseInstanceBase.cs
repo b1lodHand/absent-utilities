@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace com.absence.utilities.experimental.databases
 {
-    public abstract class ResourcesDatabaseInstance<T1, T2> : DatabaseInstance<T1, T2> where T2 : UnityEngine.Object
+    public abstract class ResourcesDatabaseInstanceBase<T1, T2> : DatabaseInstanceBase<T1, T2> where T2 : UnityEngine.Object
     {
         protected string m_path;
         protected bool m_workOnOriginals;
 
         public event Action OnRefreshComplete;
 
-        public ResourcesDatabaseInstance(string path, bool workOnOriginals = true) : base()
+        public ResourcesDatabaseInstanceBase(string path, bool workOnOriginals = true) : base()
         {
             m_path = path;
             m_workOnOriginals = workOnOriginals;
@@ -87,9 +87,9 @@ namespace com.absence.utilities.experimental.databases
             }
         }
     }
-    public class ResourcesMemberDatabaseInstance<T1, T2> : ResourcesDatabaseInstance<T1, T2> where T2 : UnityEngine.Object, IDatabaseMember<T1>
+    public class ResourcesDatabaseInstance<T1, T2> : ResourcesDatabaseInstanceBase<T1, T2> where T2 : UnityEngine.Object, IDatabaseMember<T1>
     {
-        public ResourcesMemberDatabaseInstance(string path, bool workOnOriginals = true) : base(path, workOnOriginals)
+        public ResourcesDatabaseInstance(string path, bool workOnOriginals = true) : base(path, workOnOriginals)
         {
         }
 
