@@ -23,9 +23,6 @@ namespace com.absence.utilities.experimental.databases.internals
         }
         public virtual int Size => Data.Count;
 
-        public virtual IEnumerable<T1> Keys => Data.Keys;
-        public virtual IEnumerable<T2> Values => Data.Values;
-
         public T2 this[T1 key]
         {
             get
@@ -85,6 +82,9 @@ namespace com.absence.utilities.experimental.databases.internals
         {
             Clear();
             Data = null;
+
+            if (Databases.Contains(this))
+                Databases.Remove(this);
         }
 
         public virtual IEnumerator<T2> GetEnumerator()
