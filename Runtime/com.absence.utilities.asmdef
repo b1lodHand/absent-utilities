@@ -1,7 +1,9 @@
 {
     "name": "com.absence.utilities",
     "rootNamespace": "com.absence.utilities",
-    "references": [],
+    "references": [
+        "com.absence.attributes"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -9,6 +11,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.absence.attributes",
+            "expression": "1.0.0",
+            "define": "ABSENT_ATTRIBUTES"
+        }
+    ],
     "noEngineReferences": false
 }
