@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace com.absence.utilities
@@ -16,7 +17,21 @@ namespace com.absence.utilities
         /// </summary>
         public static void DestroyChildren(this Transform t)
         {
-            foreach (Transform child in t) Object.Destroy(child.gameObject);
+            foreach (Transform child in t) UnityEngine.Object.Destroy(child.gameObject);
+        }
+
+        public static bool IsDerivedFrom(this Type type, Type baseTypeToCheck)
+        {
+            Type baseType = type;
+            while (baseType != null)
+            {
+                if (baseType.Equals(baseTypeToCheck))
+                    break;
+
+                baseType = baseType.BaseType;
+            }
+
+            return baseType != null;
         }
     }
 
